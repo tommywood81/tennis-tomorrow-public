@@ -1,0 +1,21 @@
+{
+  "strategies": [
+    {
+      "strategy": "quarter_kelly",
+      "num_bets_placed": 227,
+      "bets_won": 161,
+      "bets_lost": 66,
+      "win_rate": 0.7092511013215859,
+      "final_bankroll": 223.186993682975,
+      "total_profit": 123.186993682975,
+      "roi_pct": 123.186993682975,
+      "max_drawdown": 23.494039518041006,
+      "risk_adjusted_roi": 5.243329413192255,
+      "pct_bet_on": 27.415458937198068
+    }
+  ],
+  "total_matches": 828,
+  "note": "Results from validation model (trained \u22642023) evaluated on 2025 test set with real betting odds",
+  "calibration_reliability_exists": true,
+  "underdog_diagnostic_exists": true
+}

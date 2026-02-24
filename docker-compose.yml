@@ -1,0 +1,35 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: ./services/backend/Dockerfile
+    image: tommyboy777/tennis-backend:latest
+    ports:
+      - "8000:8000"
+    environment:
+      - TPD_API_PREFIX=/api
+      - TPD_CALIBRATION_TEMPERATURE_OVERRIDE=1.0
+    volumes:
+      - ./data:/app/data:ro
+      # Production model and scalers (required for As At / Current predictions).
+      # Must contain: pro_level_production_model.pt and scalers/ (sequence_scaler.npz, static_scaler.joblib, etc.).
+      # Create them by running from project root: python scripts/run_pro_level_production_training.py
+      - ./experiments/models/production:/app/experiments/models/production:ro
+      # Odds backtest results (best_strategy_summary, calibration/underdog diagnostic images)
+      - ./experiments/odds/results:/app/experiments/odds/results:ro
+      # Keep models/ volume for any additional model metadata
+      - ./models:/app/models:ro
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./services/frontend
+    image: tommyboy777/tennis-frontend:latest
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    restart: unless-stopped
+

@@ -1,0 +1,75 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.log
+.env
+.env.*
+.DS_Store
+node_modules/
+venv/
+.venv/
+env/
+ENV/
+pip-wheel-metadata/
+tests/
+artifacts/
+logs/
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data files (too large, use volumes)
+data/processed/
+!data/processed/preprocessed_data.csv
+data/raw/*.csv
+!data/raw/older_years/
+
+# Experiment outputs (except production model and results)
+experiments/cache/
+experiments/new_lstm/*
+!experiments/new_lstm/deployment_2025/
+!experiments/results/
+!experiments/results/tournament_predictions_2025.json
+
+# Other experiment directories
+experiments/new_lstm/cv_*/
+experiments/new_lstm/split_*/
+!experiments/new_lstm/split_2025_default/full_validation_full_validation_2024_model.pt
+!experiments/new_lstm/split_pro_level_2024_2025/scalers/
+experiments/new_lstm/phase*/
+experiments/new_lstm/forward_*/
+experiments/new_lstm/holdout_*/
+
+# Documentation
+*.md
+!README.md
+
+# Scripts (not needed in container)
+scripts/
+new_lstm_pipeline.py
+
+# Frontend (not needed in backend)
+services/frontend/
+
+# Docker files
+docker-compose.yml
+deploy_local.yml
+.dockerignore
+
+
+
+
